@@ -1,0 +1,25 @@
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  reviews   Review[]
+}
+
+model Entity {
+  id        String   @id @default(uuid())
+  name      String
+  category  String
+  verified  Boolean @default(false)
+  reviews   Review[]
+}
+
+model Review {
+  id        String   @id @default(uuid())
+  rating    Int
+  comment   String
+  entityId  String
+  userId    String
+  createdAt DateTime @default(now())
+
+  entity Entity @relation(fields: [entityId], references: [id])
+  user   User   @relation(fields: [userId], references: [id])
+}
