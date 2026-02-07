@@ -1,3 +1,13 @@
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import SearchBar from "@/components/SearchBar";
+
 export default function Home() {
-  return <h1>Khyati is live</h1>;
+  return (
+    <>
+      <Navbar />
+      <Hero />
+      <SearchBar />
+    </>
+  );
 }
